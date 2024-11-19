@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 export interface Task{
   title: string;
+  priority: number;
   completed: boolean
 }
 
@@ -18,9 +19,11 @@ export interface Task{
 export class AppComponent {
   taskList: Task[] = []
   newTask: string = ''
+  newPriority: number = 2
   addTask() {
     if(this.newTask){
-      this.taskList.push({title: this.newTask, completed: false})
+      this.taskList.push({title: this.newTask,priority: Number(this.newPriority) , completed: false})
+      this.newTask = ''
     }
   }
   removeTask(index: number){

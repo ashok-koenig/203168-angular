@@ -4,7 +4,20 @@
         <li>
             <input type="checkbox" [checked]="task.completed"  (change)="changeStatus($index, task.completed)"/>
             {{task.title}}
+            @switch (task.priority) {
+                @case (1) {
+                    <span>(High)</span>
+                }
+                @case (2) {
+                    <span>(Normal)</span>
+                }
+                @case (3) {
+                    <span>(Low)</span>
+                }
+            }
             <button (click)="handleRemoveTask($index)">Remove</button>
         </li>
+    }@empty {
+        <p>No task for the day</p>
     }
 </ol>

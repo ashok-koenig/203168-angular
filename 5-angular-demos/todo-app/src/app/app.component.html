@@ -1,5 +1,10 @@
 <h1>My To-Do App</h1>
-<input type="text" [(ngModel)]="newTask" placeholder="Add new task" />
+<input type="text" [(ngModel)]="newTask" (keyup.enter)="addTask()" placeholder="Add new task" />
+<select [(ngModel)]="newPriority">
+  <option value="1">High</option>
+  <option value="2">Normal</option>
+  <option value="3">Low</option>
+</select>
 <button (click)="addTask()">Add Task</button>
 <hr/>
 <app-todo-list [tasks]="taskList" (removeTaskEvent)="removeTask($event)"></app-todo-list>
