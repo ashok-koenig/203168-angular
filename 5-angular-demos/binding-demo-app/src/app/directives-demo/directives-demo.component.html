@@ -1,0 +1,22 @@
+<h4>Working with *ngFor / *ngIf</h4>
+<ol *ngIf="nameList.length>0">
+    <li *ngFor="let name of nameList">{{name}}</li>
+</ol>
+<p *ngIf="nameList.length==0">No Names</p>
+<h4>Working with  for</h4>
+<ol>
+    @for (name of nameList; track $index) {
+        <li>{{name}}</li>
+    } @empty {
+        <p>No Names</p>
+    }
+</ol>
+
+<button (click)="toggleVisibility()">Toggle Visibility</button>
+<p *ngIf="isVisible">This paragraph is conditionally visible</p>
+
+@if(isVisible){
+    <p>This paragraph is conditionally visible</p>
+}@else if (!isVisible) {
+    <p>Another paragraph</p>
+}
