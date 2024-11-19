@@ -13,6 +13,8 @@ export class DirectivesDemoComponent {
   // nameList: string[] = []
   isVisible: boolean = true;
   isHighlighted: boolean = false
+  textColor: string = "red";
+  fontSize: number = 20;
 
   toggleVisibility(){
     this.isVisible = !this.isVisible
