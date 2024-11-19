@@ -9,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class PropertyBindingComponent {
   webUrl: string = "https://www.google.com"
+  picUrl: string = "images/pic1.jpg"
+  width: number = 150
+  isDisabled: boolean = false
 }
