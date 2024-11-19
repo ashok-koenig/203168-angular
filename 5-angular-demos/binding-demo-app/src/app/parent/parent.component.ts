@@ -10,4 +10,8 @@ import { ChildComponent } from '../child/child.component';
 })
 export class ParentComponent {
   message: string = "Hello from the parent component!"
+  childMessage: string = ''
+  receiveMessage(msg: string){
+    this.childMessage = msg;
+  }
 }

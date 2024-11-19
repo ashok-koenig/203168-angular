@@ -1,2 +1,4 @@
-<p>parent works!</p>
-<app-child [parentMessage]="message"></app-child>
+<h2>Parent Component</h2>
+<h4>Message from Child: {{childMessage}}</h4>
+
+<app-child [parentMessage]="message" (messageEvent)=" receiveMessage($event)"></app-child>
