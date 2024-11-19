@@ -12,4 +12,5 @@ export class PropertyBindingComponent {
   picUrl: string = "images/pic1.jpg"
   width: number = 150
   isDisabled: boolean = false
+  buttonLabel: string = "This is Simple button"
 }

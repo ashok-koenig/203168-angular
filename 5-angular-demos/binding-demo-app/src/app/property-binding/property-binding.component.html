@@ -1,4 +1,4 @@
 <h3>Property Binding</h3>
 <a [href]="webUrl" target="_blank">Go to Google</a>
 <img [src]="picUrl" alt="Image not found" [style.width.px]="width"/>
-<button [disabled]="isDisabled">Click me</button>
+<button [attr.aria-label]="buttonLabel" [disabled]="isDisabled">Working with Disabled</button>
