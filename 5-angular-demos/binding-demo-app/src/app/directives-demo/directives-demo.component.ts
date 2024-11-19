@@ -12,9 +12,13 @@ export class DirectivesDemoComponent {
   nameList: string[] = ["John", "Peter", "Smith", "Ana"]
   // nameList: string[] = []
   isVisible: boolean = true;
+  isHighlighted: boolean = false
 
   toggleVisibility(){
     this.isVisible = !this.isVisible
   }
-  
+  toggleHighlight(){
+    this.isHighlighted = !this.isHighlighted
+  }
+
 }

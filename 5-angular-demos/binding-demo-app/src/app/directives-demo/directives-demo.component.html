@@ -20,3 +20,6 @@
 }@else if (!isVisible) {
     <p>Another paragraph</p>
 }
+
+<h4 [ngClass]="{highlight: isHighlighted}">Working with ngClass Directive</h4>
+<button (click)="toggleHighlight()">Toggle Highlight</button>
