@@ -23,4 +23,7 @@ export class AppComponent {
       this.taskList.push({title: this.newTask, completed: false})
     }
   }
+  removeTask(index: number){
+    this.taskList.splice(index, 1)
+  }
 }

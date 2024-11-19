@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../app.component';
 import { CommonModule } from '@angular/common';
 
@@ -11,4 +11,13 @@ import { CommonModule } from '@angular/common';
 })
 export class TodoListComponent {
 @Input() tasks:Task[] = []
+@Output() removeTaskEvent = new EventEmitter<number>()
+
+changeStatus(index: number, status: boolean){
+  this.tasks[index].completed = !status
+}
+
+handleRemoveTask(index: number){
+  this.removeTaskEvent.emit(index)
+}
 }

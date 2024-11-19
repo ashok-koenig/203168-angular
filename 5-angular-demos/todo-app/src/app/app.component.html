@@ -2,4 +2,4 @@
 <input type="text" [(ngModel)]="newTask" placeholder="Add new task" />
 <button (click)="addTask()">Add Task</button>
 <hr/>
-<app-todo-list [tasks]="taskList"></app-todo-list>
+<app-todo-list [tasks]="taskList" (removeTaskEvent)="removeTask($event)"></app-todo-list>
