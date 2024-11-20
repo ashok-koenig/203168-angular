@@ -1,0 +1,30 @@
+<h3>Register From</h3>
+<form #myForm="ngForm" (ngSubmit)="handleSubmit(myForm)">
+    <div>
+        <label>First Name</label>
+        <input name="firstName" type="text" #firstName="ngModel" [(ngModel)]="formData.firstName" placeholder="Enter First name" required/>
+        <p *ngIf="firstName.touched && firstName.invalid">First Name is required</p>
+    </div>
+    <div>
+        <label>Last Name</label>
+        <input name="lastName" type="text" ngModel placeholder="Enter Last name" />
+    </div>
+    <div ngModelGroup="address">
+        <div>
+            <label>Street</label>
+            <input name="street" type="text" ngModel placeholder="Enter street name" />
+        </div>
+        <div>
+            <label>Pin Code</label>
+            <input name="pincode" type="text" ngModel placeholder="Enter Pin code " required/>
+        </div>
+        <div>
+            <label>City</label>
+            <input name="city" type="text" ngModel placeholder="Enter city name" required/>
+        </div>
+    </div>
+    
+    <div>
+        <button [disabled]="myForm.invalid" type="submit">Submit</button>
+    </div>
+</form>
