@@ -15,6 +15,6 @@ export class AddBookComponent {
   constructor(private bookService: BookService){    
   }
   handleSubmit(){
-    this.bookService.addBook(this.newBook)
+    this.bookService.addBook({...this.newBook})
   }
 }
