@@ -1,3 +1,13 @@
 <h2>Simple calculations using service</h2>
-<h2>Sum Result: {{result}}</h2>
+<h2>Result: {{result}}</h2>
 <button (click)="handleClick()">Call Service Method</button>
+<div>
+    Price: <input type="number" [(ngModel)]="price" />
+</div>
+<div>
+    Quantity: <input type="number" [(ngModel)]="quantity" />
+</div>
+<div>
+    Offer: <input type="number" [(ngModel)]="offer" />
+</div>
+<button (click)="totalCostHandler()">Calculate Total Cost</button>

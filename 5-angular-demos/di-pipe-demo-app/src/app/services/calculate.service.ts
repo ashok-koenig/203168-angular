@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
+@Injectable(
+  {
   providedIn: 'root'
-})
+}
+)
 export class CalculateService {
   private result: number = 0;
   constructor() { }
@@ -12,5 +14,9 @@ export class CalculateService {
   }
   getResult(): number{
     return this.result;
+  }
+  totalCost(price: number, quantity: number, offer: number): number{
+      this.result = (price * quantity) - offer;
+      return this.result;
   }
 }
