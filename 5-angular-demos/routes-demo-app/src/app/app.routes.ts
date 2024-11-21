@@ -5,6 +5,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { AboutCompanyComponent } from './pages/about-company/about-company.component';
 import { AboutPeopleComponent } from './pages/about-people/about-people.component';
+import { ProfilesComponent } from './pages/profiles/profiles.component';
+import { ProfileDetailComponent } from './pages/profile-detail/profile-detail.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'/home', pathMatch:'full'},
@@ -15,6 +17,8 @@ export const routes: Routes = [
         {path: 'people', component: AboutPeopleComponent}
     ]},
     // {path: 'about/company', component: AboutCompanyComponent},
+    {path: 'profiles', component: ProfilesComponent},
+    {path: 'profile-detail/:name', component: ProfileDetailComponent},
     {path: 'contact', component: ContactComponent},
     {path: '**', component: PageNotFoundComponent}
 ];
