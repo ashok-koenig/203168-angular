@@ -11,12 +11,15 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HeaderComponent {
   isLoggedIn: boolean = false
+  userRole: string = ''
   constructor(private authService: AuthService, private router: Router){
-
+    this.isLoggedIn = authService.isLoggedIn;
+    this.userRole = authService.userRole
   }
   handleLogin(role: string){
     this.authService.login(role)
-    this.isLoggedIn = true;
+    this.isLoggedIn = this.authService.isLoggedIn;
+    this.userRole = this.authService.userRole
     if(role == 'admin'){
       this.router.navigate(['/admin'])
     }
@@ -26,7 +29,8 @@ export class HeaderComponent {
   }
   handleLogout(){
     this.authService.logout();
-    this.isLoggedIn = false
+    this.isLoggedIn = this.authService.isLoggedIn;
+    this.userRole = this.authService.userRole
     this.router.navigate(['/home'])
   }
 }
