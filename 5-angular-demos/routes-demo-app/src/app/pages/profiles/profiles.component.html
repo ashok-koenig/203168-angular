@@ -1,7 +1,7 @@
 <h1>All Profiles</h1>
-<a routerLink="/profile-detail/ana">
+<a routerLink="/profile-detail/ana" [queryParams]="{firstName: 'Ana', lastName: 'Smith'}">
     <img src="images/ana.jpg" alt="Image not found" width="200px"/>
 </a>
-<a routerLink="/profile-detail/john">
+<a routerLink="/profile-detail/john" [queryParams]="{firstName: 'John', lastName: 'Peter'}">
     <img src="images/john.jpg" alt="Image not found" width="200px"/>
 </a>
