@@ -2,3 +2,11 @@
 <a routerLink="/about"  routerLinkActive="active">About</a> |
 <a routerLink="/profiles"  routerLinkActive="active">Profiles</a> |
 <a routerLink="/contact" routerLinkActive="active">Contact</a> |
+<a routerLink="/admin" routerLinkActive="active">Admin Dashboard</a> |
+<a routerLink="/user" routerLinkActive="active">User Dashboard</a> |
+@if (!isLoggedIn) {
+    <button (click)="handleLogin('admin')">Login as Admin</button>
+    <button (click)="handleLogin('user')">Login as User</button>
+}@else{
+    <button (click)="handleLogout()">Logout</button>
+}
