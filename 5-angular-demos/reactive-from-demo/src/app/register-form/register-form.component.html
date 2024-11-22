@@ -1,0 +1,22 @@
+<h2>Register Form</h2>
+<form [formGroup]="registerForm" (ngSubmit)="handleSumit()">
+    <div>
+        <label>First Name</label>
+        <input type="text" formControlName="firstName" placeholder="Enter first name" />
+        <div *ngIf="firstName.invalid && firstName.touched" class="error">
+            <span *ngIf="firstName.hasError('required')">First name is required</span>
+            <span *ngIf="firstName.hasError('minlength')">First name must be at least 3 characters</span>
+        </div>
+    </div>
+    <div>
+        <label>Last Name</label>
+        <input type="text" formControlName="lastName" placeholder="Enter last name" />
+        <div *ngIf="lastName.invalid && lastName.touched" class="error">
+            <span *ngIf="lastName.hasError('required')">Last name is required</span>
+            
+        </div>
+    </div>
+    <div>
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    </div>
+</form>
