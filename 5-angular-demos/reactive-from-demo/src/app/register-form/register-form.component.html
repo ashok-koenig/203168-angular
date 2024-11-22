@@ -17,6 +17,21 @@
         </div>
     </div>
     <div>
+        <label>Phone Numbers</label>
+        <div formArrayName="phoneNumbers">
+            <div *ngFor="let phone of phoneNumbers.controls; let i=index">
+                <label>Phone {{i + 1}}</label>
+                <input type="text" [formControlName]="i" placeholder="Enter 10-digit phone number" />
+                <button [disabled]="phoneNumbers.length==1" type="button" (click)="removePhoneNumber(i)">Remove</button>
+                <div *ngIf="phone.invalid && phone.touched" class="error">
+                    <span *ngIf="phone.hasError('required')">Phone is required</span>
+                    <span *ngIf="phone.hasError('pattern')">Invalide phone number format.</span>
+                </div>
+            </div>
+        </div>
+        <button type="button" (click)="addPhoneNumber()">Add Phone Number</button>
+    </div>
+    <div>
         <label>Email</label>
         <input type="email" formControlName="email" placeholder="Enter email address" />
         <div *ngIf="email.invalid && email.touched" class="error">
