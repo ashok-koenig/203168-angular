@@ -22,6 +22,7 @@
         <div *ngIf="email.invalid && email.touched" class="error">
             <span *ngIf="email.hasError('required')">Email is required</span>
             <span *ngIf="email.hasError('email')">Email is Invalid</span>
+            <span *ngIf="email.hasError('emailTaken')">Email is already registered</span>
         </div>
     </div>
     <div>

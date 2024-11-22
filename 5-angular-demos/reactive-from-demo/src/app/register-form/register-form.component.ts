@@ -13,7 +13,7 @@ export class RegisterFormComponent {
   registerForm = new FormGroup({
     firstName: new FormControl('',[Validators.required, Validators.minLength(3)]),
     lastName: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.email], [emailTaken]),
     password: new FormControl('', [Validators.required, Validators.minLength(6), cannotContainSpace])
   })
   get firstName(): FormControl{
@@ -40,4 +40,18 @@ function cannotContainSpace(control: AbstractControl): ValidationErrors | null {
     return {cannotContainSpace: true}
   }
   return null
+}
+
+const taken_emails = ['test@email.com', 'user@email.com']
+function emailTaken (control: AbstractControl): Promise<ValidationErrors | null> {
+  const email = control.value
+  return new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+      if(taken_emails.includes(email)){
+        resolve({emailTaken: true})
+      }else{
+        resolve(null)
+      }
+    }, 2000)
+  })
 }
