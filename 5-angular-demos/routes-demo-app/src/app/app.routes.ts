@@ -11,6 +11,7 @@ import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.co
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { authGuard } from './guards/auth.guard';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { unsavedGuard } from './guards/unsaved.guard';
 
 export const routes: Routes = [
     {path: '', redirectTo:'/home', pathMatch:'full'},
@@ -23,7 +24,7 @@ export const routes: Routes = [
     // {path: 'about/company', component: AboutCompanyComponent},
     {path: 'profiles', component: ProfilesComponent},
     {path: 'profile-detail/:name', component: ProfileDetailComponent},
-    {path: 'contact', component: ContactComponent},
+    {path: 'contact', component: ContactComponent, canDeactivate: [unsavedGuard]},
     {path:'unauthorized', component: UnauthorizedComponent},
     {path: 'user', component: UserDashboardComponent, canActivate:[authGuard], data: {roles: ['user']}},
     {path: 'admin', component: AdminDashboardComponent, canActivate:[authGuard], data: {roles: ['admin']} },
