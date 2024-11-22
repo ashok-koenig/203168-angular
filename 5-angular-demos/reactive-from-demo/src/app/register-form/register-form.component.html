@@ -17,6 +17,23 @@
         </div>
     </div>
     <div>
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="Enter email address" />
+        <div *ngIf="email.invalid && email.touched" class="error">
+            <span *ngIf="email.hasError('required')">Email is required</span>
+            <span *ngIf="email.hasError('email')">Email is Invalid</span>
+        </div>
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" formControlName="password" placeholder="Enter password" />
+        <div *ngIf="password.invalid && password.touched" class="error">
+            <span *ngIf="password.hasError('required')">Password is required</span>
+            <span *ngIf="password.hasError('minlength')">Password must be at least 6 characters</span>
+            <span *ngIf="password.hasError('cannotContainSpace')">Password should not contain space</span>
+        </div>
+    </div>
+    <div>
         <button type="submit" [disabled]="registerForm.invalid">Register</button>
     </div>
 </form>

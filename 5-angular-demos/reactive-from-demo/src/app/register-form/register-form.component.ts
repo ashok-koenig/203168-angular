@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
@@ -12,7 +12,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class RegisterFormComponent {
   registerForm = new FormGroup({
     firstName: new FormControl('',[Validators.required, Validators.minLength(3)]),
-    lastName: new FormControl('', [Validators.required])
+    lastName: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6), cannotContainSpace])
   })
   get firstName(): FormControl{
     return this.registerForm.get('firstName') as FormControl
@@ -20,7 +22,22 @@ export class RegisterFormComponent {
   get lastName(): FormControl{
     return this.registerForm.get('lastName') as FormControl
   }
-  handleSumit(){
-    console.log(this.registerForm);    
+  get email(): FormControl{
+    return this.registerForm.get('email') as FormControl
   }
+  get password(): FormControl{
+    return this.registerForm.get('password') as FormControl
+  }
+  handleSumit(){
+    console.log(this.registerForm.value);    
+  }
+}
+
+// Custom Validations
+function cannotContainSpace(control: AbstractControl): ValidationErrors | null {
+  const value: string = control.value
+  if(value.indexOf(' ')>0){
+    return {cannotContainSpace: true}
+  }
+  return null
 }
