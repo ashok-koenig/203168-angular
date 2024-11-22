@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
@@ -13,6 +13,7 @@ export class RegisterFormComponent {
   registerForm = new FormGroup({
     firstName: new FormControl('',[Validators.required, Validators.minLength(3)]),
     lastName: new FormControl('', [Validators.required]),
+    phoneNumbers: new FormArray([this.createPhoneNumberControl()]),
     email: new FormControl('', [Validators.required, Validators.email], [emailTaken]),
     password: new FormControl('', [Validators.required, Validators.minLength(6), cannotContainSpace]),
     address: new FormGroup({
@@ -21,6 +22,21 @@ export class RegisterFormComponent {
       pinCode: new FormControl('',[Validators.required])
     })
   })
+  createPhoneNumberControl(){
+    return new FormControl('', 
+                        [Validators.required, 
+                          Validators.pattern(/^[0-9]{10}/)
+                        ])
+  }
+  get phoneNumbers(): FormArray {
+    return this.registerForm.get('phoneNumbers') as FormArray
+  }
+  addPhoneNumber(){
+    this.phoneNumbers.push(this.createPhoneNumberControl())
+  }
+  removePhoneNumber(index: number){
+    this.phoneNumbers.removeAt(index)
+  }
   get firstName(): FormControl{
     return this.registerForm.get('firstName') as FormControl
   }
