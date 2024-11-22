@@ -14,7 +14,12 @@ export class RegisterFormComponent {
     firstName: new FormControl('',[Validators.required, Validators.minLength(3)]),
     lastName: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email], [emailTaken]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6), cannotContainSpace])
+    password: new FormControl('', [Validators.required, Validators.minLength(6), cannotContainSpace]),
+    address: new FormGroup({
+      street: new FormControl(''),
+      city: new FormControl('',[ Validators.required]),
+      pinCode: new FormControl('',[Validators.required])
+    })
   })
   get firstName(): FormControl{
     return this.registerForm.get('firstName') as FormControl
@@ -28,6 +33,13 @@ export class RegisterFormComponent {
   get password(): FormControl{
     return this.registerForm.get('password') as FormControl
   }
+  get city(): FormControl{
+    return this.registerForm.get('address')?.get('city') as FormControl
+  }
+  get pinCode(): FormControl{
+    return this.registerForm.get('address')?.get('pinCode') as FormControl
+  }
+
   handleSumit(){
     console.log(this.registerForm.value);    
   }

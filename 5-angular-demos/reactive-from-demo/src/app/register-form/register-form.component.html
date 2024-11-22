@@ -34,6 +34,33 @@
             <span *ngIf="password.hasError('cannotContainSpace')">Password should not contain space</span>
         </div>
     </div>
+    <div  formGroupName="address">
+        <div>
+            <label>Street</label>
+            <input type="text" formControlName="street" placeholder="Enter street" />
+        </div>
+        <div>
+            <label>Select City</label>
+            <select formControlName="city">
+                <option value="">Select a City</option>
+                <option value="City 1">City 1</option>
+                <option value="City 2">City 2</option>
+            </select>
+            <div *ngIf="city.invalid && city.touched" class="error">
+                <span *ngIf="city.hasError('required')">city is required</span>
+               
+            </div>
+        </div>
+        <div>
+            <label>PinCode</label>
+            <input type="number" formControlName="pinCode" placeholder="Enter Pin Code" />
+            <div *ngIf="pinCode.invalid && pinCode.touched" class="error">
+                <span *ngIf="pinCode.hasError('required')">pinCode is required</span>
+               
+            </div>
+        </div>
+
+    </div>
     <div>
         <button type="submit" [disabled]="registerForm.invalid">Register</button>
     </div>
