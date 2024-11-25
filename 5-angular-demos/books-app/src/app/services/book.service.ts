@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class BookService {
   // private booksList: Book[] = []
   constructor(private http: HttpClient) { }
-  addBook(newBook: Book){
+  addBook(newBook: Book): Observable<Book>{
+    return this.http.post<Book>('http://localhost:3000/books', newBook)
     // this.booksList.push(newBook)
   }
   getBooks(): Observable<Book[]>{

@@ -16,6 +16,11 @@ export class AddBookComponent {
   constructor(private bookService: BookService){    
   }
   handleSubmit(){
-    this.bookService.addBook({...this.newBook})
+    this.bookService.addBook({...this.newBook}).subscribe((data: Book)=>{
+      if(data.id){
+        this.newBook.title='';
+        this.newBook.author= ''
+      }
+    })
   }
 }
