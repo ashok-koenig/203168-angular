@@ -13,14 +13,24 @@ import { CommonModule } from '@angular/common';
 })
 export class AddBookComponent {
   newBook: Book = {title: '', author: ''}
+  successMessage: string =''
+  errorMessage: string =''
   constructor(private bookService: BookService){    
   }
   handleSubmit(){
-    this.bookService.addBook({...this.newBook}).subscribe((data: Book)=>{
+    this.bookService.addBook({...this.newBook}).subscribe({
+      next: (data: Book)=>{
       if(data.id){
         this.newBook.title='';
         this.newBook.author= ''
+        this.successMessage = "Books created successfully"
+      }else{
+        this.errorMessage = "Error in creating new Book"
       }
-    })
+    },
+    error: (error)=>{
+      this.errorMessage = "Something went wrong, please try again"
+    }
+  })
   }
 }
