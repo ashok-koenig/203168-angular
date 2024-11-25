@@ -18,6 +18,13 @@ export class BookService {
     // return this.booksList;
   }
 
+  getABook(id: number): Observable<Book>{
+    return this.http.get<Book>(`http://localhost:3000/books/${id}`)
+  }
+  updateBook(editedBook: Book): Observable<Book>{
+    return this.http.put<Book>(`http://localhost:3000/books/${editedBook.id}`, editedBook)
+  }
+
   deleteBook(id: number){
     return this.http.delete(`http://localhost:3000/books/${id}`)
   }

@@ -1,9 +1,9 @@
 {
   "books": [
     {
-      "id": 1,
-      "title": "Angular Book",
-      "author": "John"
+      "title": "Angular Book updated",
+      "author": "John Peter",
+      "id": 1
     },
     {
       "title": "Test book from angular",

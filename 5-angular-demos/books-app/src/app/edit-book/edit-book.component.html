@@ -1,0 +1,23 @@
+<h2>Edit Book</h2>
+<form #bookForm="ngForm" (ngSubmit)="handleSubmit()">
+    <div>
+        <label>Book Title</label>
+        <input type="text" name="title" #title="ngModel" [(ngModel)]="newBook.title" placeholder="Enter book title" required minlength="3"/>
+        <div *ngIf="title.invalid && title.touched" style="color: red;">
+            <span *ngIf="title.hasError('required')">Title is required</span>
+            <span *ngIf="title.hasError('minlength')">Title should be at least 3 characters</span>
+        </div>
+    </div>
+    <div>
+        <label>Book Author</label>
+        <input type="text" name="author" #author="ngModel" [(ngModel)]="newBook.author" placeholder="Enter book author" required/>
+        <div *ngIf="author.invalid && author.touched" style="color: red;">
+            <span>Author is required</span>
+        </div>
+    </div>
+    <div>
+        <button [disabled]="bookForm.invalid" type="submit">Update Book</button>
+    </div>
+    <h4 style="color: red;">{{errorMessage}}</h4>
+    <h4 style="color: green;">{{successMessage}}</h4>
+</form>

@@ -13,6 +13,7 @@
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
             <td>
+                <a [routerLink]="['/books/edit', book.id]">Edit</a>
                 <button (click)="handleDelete(book)">Delete</button>
             </td>
         </tr>
