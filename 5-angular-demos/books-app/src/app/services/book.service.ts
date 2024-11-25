@@ -18,4 +18,8 @@ export class BookService {
     // return this.booksList;
   }
 
+  deleteBook(id: number){
+    return this.http.delete(`http://localhost:3000/books/${id}`)
+  }
+
 }

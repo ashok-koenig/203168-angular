@@ -2,13 +2,19 @@
 <!-- <p>{{ books |json}}</p> -->
 <table [border]=1 width="100%">
     <tr>
+        <th>ID</th>
         <th>Title</th>
         <th>Author</th>
+        <th>Action</th>
     </tr>
     @for (book of books; track $index) {
         <tr>
+            <td>{{book.id}}</td>
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
+            <td>
+                <button (click)="handleDelete(book)">Delete</button>
+            </td>
         </tr>
     }@empty {
         <tr>

@@ -14,8 +14,21 @@ export class ListBookComponent {
   books: Book[] = []
   constructor(private bookService: BookService){
     // this.books = bookService.getBooks()
-    bookService.getBooks().subscribe((data)=>{
+    this.loadBooks()
+  }
+
+  loadBooks(){
+    this.bookService.getBooks().subscribe((data)=>{
       this.books = data
     })
+  }
+
+  handleDelete(book: Book){
+    let result = confirm('Are you sure? want to delete the book')
+    if(result && book.id){
+      this.bookService.deleteBook(book.id).subscribe(()=>{
+        this.loadBooks()
+      })
+    }
   }
 }

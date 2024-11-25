@@ -9,11 +9,6 @@
       "title": "Test book from angular",
       "author": "Test author",
       "id": 2
-    },
-    {
-      "title": "Rxjs for API",
-      "author": "Test author",
-      "id": 3
     }
   ]
 }
