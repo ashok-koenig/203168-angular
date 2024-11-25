@@ -13,6 +13,9 @@ import { CommonModule } from '@angular/common';
 export class ListBookComponent {
   books: Book[] = []
   constructor(private bookService: BookService){
-    this.books = bookService.getBooks()
+    // this.books = bookService.getBooks()
+    bookService.getBooks().subscribe((data)=>{
+      this.books = data
+    })
   }
 }
