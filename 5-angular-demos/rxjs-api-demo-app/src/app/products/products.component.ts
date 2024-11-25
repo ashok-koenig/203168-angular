@@ -12,10 +12,16 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductsComponent {
   productsList: Product[] = []
+  errorMessage: string = ''
   constructor(private productService: ProductService){
-    productService.getAllProducts().subscribe(value=>{
+    productService.getAllProducts().subscribe({
+      next: (value)=>{
       // console.log(value)
       this.productsList = value      
-    })
+    },
+    error: (error)=>{
+      this.errorMessage = error
+    }
+  })
   }
 }
