@@ -1,1 +1,43 @@
-<p>form-input works!</p>
+<h2>Material Input Fields</h2>
+<mat-form-field appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input type="text" [(ngModel)]="firstName" matInput placeholder="Enter your first Name">
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input type="text" [(ngModel)]="lastName" matInput placeholder="Enter your last Name">
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input type="email" [(ngModel)]="email" matInput placeholder="Enter your email">
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Message</mat-label>
+    <textarea [(ngModel)]="message" matInput placeholder="Enter your message"></textarea>
+</mat-form-field>
+<p>Full Name: {{firstName}} {{lastName}}</p>
+<p>Email: {{email}}</p>
+<p>Message: {{message}}</p>
+<h2>Material Radio and Selection inputs</h2>
+<label>Select your gender</label>
+<mat-radio-group [(ngModel)]="gender">
+    <mat-radio-button value="male">Male</mat-radio-button>
+    <mat-radio-button value="female">Female</mat-radio-button>
+</mat-radio-group>
+
+<div>
+    <p>Gender: {{gender}}</p>
+</div>
+
+<mat-form-field>
+    <mat-label>Select a course</mat-label>
+    <mat-select [(value)]="course">
+        <mat-option>Please select</mat-option>
+        <mat-option value="react">React</mat-option>
+        <mat-option value="angular">Angular</mat-option>
+        <mat-option value="javascript">JavaScript</mat-option>        
+    </mat-select>
+</mat-form-field>
+<div>
+    <p>Selected coruse: {{course}}</p>
+</div>
