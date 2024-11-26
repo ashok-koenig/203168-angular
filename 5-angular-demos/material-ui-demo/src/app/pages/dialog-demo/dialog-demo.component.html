@@ -1,0 +1,5 @@
+<h3>Working with Material Dialogs</h3>
+<button (click)="openConfirmDialog()" mat-raised-button>Delete Item</button>
+<p *ngIf="result != null">
+    Users choise: {{ result? 'Yes': 'No'}}
+</p>
