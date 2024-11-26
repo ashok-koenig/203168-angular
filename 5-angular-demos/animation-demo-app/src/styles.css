@@ -5,3 +5,10 @@
     margin: 50px;
     background-color: blue;
 }
+
+.notification{
+    padding: 10px;
+    background-color: lightblue;
+    color: darkblue;
+    margin: 20px;
+}
