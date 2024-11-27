@@ -4,11 +4,15 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../../services/auth.service';
 import { TokenService } from '../../services/token.service';
 import { Router } from '@angular/router';
+import { FlexLayoutModule } from '@ngbracket/ngx-layout'
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, FlexLayoutModule, MatCardModule, MatButtonModule, MatInputModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
