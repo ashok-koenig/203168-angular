@@ -5,13 +5,14 @@ import { LoginComponent } from './pages/login/login.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { BlogFormComponent } from './pages/blog-form/blog-form.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {path:'', redirectTo:'/blogs', pathMatch:'full'},
     {path: 'blogs', component: BlogsListComponent},
     {path: 'signup', component: SignupComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'blogs/add', component: BlogFormComponent},
+    {path: 'blogs/add', component: BlogFormComponent, canActivate:[authGuard], data:{roles:['admin']}},
     {path: 'unauthorized', component: UnauthorizedComponent},
     {path: '**', component: PageNotFoundComponent}
 ];
