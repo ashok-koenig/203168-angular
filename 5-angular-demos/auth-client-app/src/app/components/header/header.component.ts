@@ -4,10 +4,11 @@ import {MatButtonModule} from '@angular/material/button'
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { TokenService } from '../../services/token.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, RouterLink],
+  imports: [MatToolbarModule, MatButtonModule, RouterLink, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

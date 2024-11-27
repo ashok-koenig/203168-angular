@@ -2,6 +2,7 @@
     <span>Auth Demo App</span>
     <button mat-button routerLink="/blogs">Blogs</button>
     @if(isLoggedIn){
+        <button *ngIf="userRole == 'admin'" mat-button routerLink="/blogs/add">Add Blog</button>
         <button mat-button (click)="handleLogout()">Logout</button>
     }@else {
         <button mat-button routerLink="/login">Login</button>
