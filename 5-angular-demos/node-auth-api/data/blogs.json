@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": 1732683703347,
+    "title": "First Blog title",
+    "content": "This is first blog content",
+    "author": 1732683046857
+  }
+]

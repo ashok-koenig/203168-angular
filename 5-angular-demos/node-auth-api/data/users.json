@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": 1732683046857,
+    "name": "Admin",
+    "email": "admin@email.com",
+    "password": "$2a$08$5RKokqWtmC4zju.gnR9rVuYhoe/EIxthLxjvedlHJCo0nbgvPhPBW",
+    "role": "admin"
+  }
+]
