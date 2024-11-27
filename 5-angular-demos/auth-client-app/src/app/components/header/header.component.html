@@ -1,6 +1,10 @@
 <mat-toolbar color="primary">
     <span>Auth Demo App</span>
     <button mat-button routerLink="/blogs">Blogs</button>
-    <button mat-button routerLink="/login">Login</button>
-    <button mat-button routerLink="/signup">Signup</button>
+    @if(isLoggedIn){
+        <button mat-button (click)="handleLogout()">Logout</button>
+    }@else {
+        <button mat-button routerLink="/login">Login</button>
+        <button mat-button routerLink="/signup">Signup</button>
+    }   
 </mat-toolbar>
