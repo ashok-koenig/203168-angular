@@ -1,1 +1,10 @@
-<p>blogs-list works!</p>
+<div>
+    <mat-card *ngFor="let blog of blogs">
+        <mat-card-header>
+            <h2 mat-card-title>{{blog.title}}</h2>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{blog.content}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>
